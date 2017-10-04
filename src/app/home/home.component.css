@@ -1,0 +1,61 @@
+.container-index-one{
+  min-height: 600px;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 100px;
+  text-align: center;
+}
+.font-head {
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+.font-subhead {
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 15px;
+}
+.create-test-btn {
+  padding: 10px;
+  background: white;
+  text-align: center;
+  color: #909090;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+.container-head h1 {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+}
+.container-head p {
+  text-align: center;
+  margin: 20px 0px;
+  text-transform: uppercase;
+  color: #a2a2a2;
+}
+.know-how-it-works {
+  min-height: 200px;
+  padding: 100px;
+}
+.inner-exact {
+  padding: 25px;
+}
+
+.khiw-boxes p{
+  margin: 15px 0px;
+  text-align: center;
+  color: #222;
+  font-family: 'Raleway';
+}
+.footer{
+  background: linear-gradient(-6deg, black, #656565);
+  text-align: center;
+  color: #ffffff;
+  padding: 100px 0px 20px;
+}
