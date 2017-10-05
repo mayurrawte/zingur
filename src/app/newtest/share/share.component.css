@@ -27,3 +27,9 @@
 #share-facebook {
  background: dodgerblue;
 }
+.sharelink {
+  padding: 10px;
+  background: #383838;
+  color: #ffffff;
+  margin: 20px 0px;
+}

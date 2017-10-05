@@ -23,6 +23,7 @@ export class QuizComponent implements OnInit {
     this.id = this.CRoute.snapshot.params['id'];
     this.loaded = true;
     this.updateFormGroup();
+    console.log(this.answerForm);
   }
   updateFormGroup() {
     this.tempForm = new FormGroup({
@@ -59,6 +60,7 @@ export class QuizComponent implements OnInit {
   }
   onToggleMode() {
     this.editMode = !this.editMode;
+    console.log(this.answerForm);
     console.log(this.tempForm.value);
     this.Questions[this.id].options[0] = this.tempForm.value['option1'];
     this.Questions[this.id].options[1] = this.tempForm.value['option2'];

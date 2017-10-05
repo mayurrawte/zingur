@@ -4,14 +4,15 @@
     <div>{{id+1}} / {{maxtest}}</div>
     <div *ngIf="loaded">
       <div class="question-container">
-        <p *ngIf="!editMode; else editQuestion;">
+        <!--<p *ngIf="!editMode; else editQuestion;">-->
+        <p>
           {{Questions[id].question}}
         </p>
-        <ng-template #editQuestion>
-          <div class="form-group">
-            <input class="form-control" [(ngModel)]="Questions[id].question">
-          </div>
-        </ng-template>
+        <!--<ng-template #editQuestion>-->
+          <!--<div class="form-group">-->
+            <!--<input class="form-control" [(ngModel)]="Questions[id].question">-->
+          <!--</div>-->
+        <!--</ng-template>-->
       </div>
       <hr />
       <div class="answers-container">
@@ -57,7 +58,7 @@
       <hr />
       <div class="">
         <button (click)="onToggleMode()" class="next-btn" [innerHTML]="editMode === false ? 'Edit' : 'Update'"></button>
-        <button (click)="goToNextQuestion(Questions[id].id)" class="next-btn">Next</button>
+        <button (click)="goToNextQuestion(Questions[id].id)" [ngClass]="{'next-btn': answerForm.dirty, 'next-btn-dis': !answerForm.dirty}" [disabled]="!answerForm.dirty" >Next</button>
       </div>
     </div>
   </div>
