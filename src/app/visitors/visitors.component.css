@@ -1,0 +1,41 @@
+.next-btn {
+  width: 49%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+}
+.prepare-test {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.panel-title{
+  border-radius: 5px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+.wrong-panel-title {
+  background: tomato;
+}
+.correct-panel-title {
+  background: #19aea5;
+}
+.social-buttons button{
+  padding: 8px;
+  width: 49%;
+  border: 0px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.social-buttons button.facebook {
+  background: linear-gradient(-15deg, #3b5998,#ffffff )
+}
+.social-buttons button.google {
+  background: linear-gradient(-15deg, #d34836,#ffffff )
+}

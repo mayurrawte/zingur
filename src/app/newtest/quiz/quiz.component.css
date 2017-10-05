@@ -1,0 +1,21 @@
+.next-btn {
+  width: 49%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+}
+.prepare-test {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.next-btn-dis {
+  width: 49%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, black, white);
+}

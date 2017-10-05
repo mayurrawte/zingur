@@ -1,0 +1,49 @@
+.select-type {
+  margin: 85px 0px
+}
+.social-buttons button{
+  padding: 8px;
+  width: 49%;
+  border: 0px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.social-buttons button.facebook {
+  background: linear-gradient(-15deg, #3b5998,#ffffff )
+}
+.social-buttons button.google {
+  background: linear-gradient(-15deg, #d34836,#ffffff )
+}
+.button-test-type {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  border: 5px solid #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.name-input {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  height: auto;
+}
+
+.prepare-test {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.desc {
+  padding: 0px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}

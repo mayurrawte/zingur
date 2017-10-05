@@ -1,0 +1,13 @@
+.zingur-logo {
+  width: 90px;
+  margin: -15px 30px;
+}
+.zingur-logo img {
+  width: 100px;
+}
+.navbar-default {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle {
+  border: 0;
+}
