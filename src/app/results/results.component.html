@@ -1,0 +1,14 @@
+<div class="container-fluid" *ngIf="loaded">
+  <div class="user-detail">
+    <div class="user-thumb">
+      <img [src]="userData.thumb === 'default' ? '../assets/images/user.png' : userData.thumb">
+    </div>
+    <div class="user-name">
+      <h3>{{userData.name}}</h3>
+    </div>
+  </div>
+  <hr />
+  <div class="result-containers">
+
+  </div>
+</div>

@@ -1,9 +1,16 @@
 .next-btn {
-  width: 49%;
+  width: 100%;
   padding: 8px;
   border: 0px;
   color: #fff;
   background: linear-gradient(170deg, #48c6ef, #6f86d6);
+}
+.next-btn-dis {
+  width: 100%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, black, white);
 }
 .prepare-test {
   text-align: center;
@@ -38,4 +45,8 @@
 }
 .social-buttons button.google {
   background: linear-gradient(-15deg, #d34836,#ffffff )
+}
+.start-btn {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
 }

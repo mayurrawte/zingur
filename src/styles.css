@@ -42,7 +42,7 @@
   left: 0;
   content: '';
   width: 2.5em;
-  background: #D1D3D4;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
   border-radius: 3px 0 0 3px;
 }
 
@@ -122,3 +122,14 @@
 .funkyradio small img {
   width: 100%;
 }
+
+.quizCounter {
+  text-align: right;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  width: 50px;
+  float: right;
+  border-radius: 5px;
+  padding: 2px 5px;
+  color: #fff;
+}
+
