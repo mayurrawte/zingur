@@ -1,4 +1,4 @@
-<h1 class="prepare-test" *ngIf="loaded">{{challengingUser['name']}} 's Challenge</h1>
+<h1 class="prepare-test" *ngIf="loaded">{{challengingUser['name']}} 's <br /> Friendship Challenge</h1>
 <hr>
 <div *ngIf="initial && loaded; else startQuiz">
   <div *ngIf="challengingUser['verified']; else anyOneReply">
@@ -10,18 +10,20 @@
       <button class="facebook" (click)="onSignIn('facebook')">Facebook</button>
     </div>
   </div>
-  <ng-template #anyOneReply>
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Enter Your Name" #responderName/>
-    </div>
-    <div class="form-group">
-      <button (click)="onSubmitName()">Start</button>
+  <ng-template #anyOneReply style="padding: 50px">
+    <div style="padding: 50px">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Enter Your Name"  class="form-control" #responderName/>
+      </div>
+      <div class="form-group">
+        <button (click)="onSubmitName()" class="form-control start-btn">Start</button>
+      </div>
     </div>
   </ng-template>
 </div>
 <ng-template #startQuiz>
   <div class="container-fluid" *ngIf="loaded && !quizCompleted;">
-    <div>{{id+1}} / {{maxtest +1}}</div>
+    <div class="quizCounter">{{id+1}} / {{maxtest +1}}</div>
     <div *ngIf="loaded">
       <div class="question-container">
         <p>
@@ -55,7 +57,7 @@
       </div>
       <hr />
       <div class="">
-        <button (click)="goToNextQuestion()" class="next-btn">Next</button>
+        <button (click)="goToNextQuestion()" [disabled]="!answerForm.dirty" [ngClass]="{'next-btn': answerForm.dirty, 'next-btn-dis': !answerForm.dirty}">Next</button>
       </div>
     </div>
   </div>
@@ -63,6 +65,15 @@
 
 <div class="container-fluid" *ngIf="quizCompleted">
   <h3>Score {{ score }} / 15</h3>
+  <p>{{score*100/15}}</p>
+  <round-progress [current]="score"
+                  [max]="15"
+                  [semicircle]="true"
+                  [color]="'#60a0e0'"
+                  [rounded]="true"
+                  [stroke]="20"
+                  [responsive]="true"
+  ></round-progress>
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -84,3 +95,5 @@
   </div>
 </div>
 </div>
+
+

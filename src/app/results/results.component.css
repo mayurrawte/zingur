@@ -1,0 +1,12 @@
+.user-thumb{
+  text-align: center;
+  width: 100px;
+  margin: 0px auto;
+}
+.user-thumb img {
+  width: 100%;
+}
+.user-name {
+  text-align: center;
+  color: #383838;
+}

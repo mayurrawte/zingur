@@ -24,6 +24,7 @@ export class DataService {
   actualUserData = {'responses': null};
   databaseurl = 'https://zingur-beff5.firebaseio.com/';
   shareUrl = null;
+  resultUrl = null;
   tempResponder = {};
   constructor(private http: Http) { }
   getQuestions() {
@@ -59,7 +60,8 @@ export class DataService {
       this.http.post('https://zingur-beff5.firebaseio.com/data.json', this.actualUserData)
         .subscribe((resData: Response) => {
         this.shareUrl = this.hostname + '/visitor/' + resData.json().name;
-        resolve();
+        this.resultUrl = this.hostname + '/result/' + (resData.json().name).split('').reverse().join('');
+        resolve(resData.json().name);
         console.log(resData);
         }, (error: Response) => {
         console.log(error);

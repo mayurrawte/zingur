@@ -71,7 +71,7 @@ export class QuizComponent implements OnInit {
     this.dataService.setQuiz(this.tempquiz)
       .then((data) => {
       console.log(data);
-      this.router.navigate(['new-test', 'share']);
+      this.router.navigate(['new-test', 'share'], {queryParams: {id: data}});
 });
 }
 }

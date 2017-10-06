@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,10 +11,11 @@ import {AuthService} from 'angular2-social-login';
 import { QuizComponent } from './newtest/quiz/quiz.component';
 import { TesttypeComponent } from './newtest/testtype/testtype.component';
 import {DataService} from './data.service';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShareComponent } from './newtest/share/share.component';
 import {HttpModule} from '@angular/http';
 import { VisitorsComponent } from './visitors/visitors.component';
+import { ResultsComponent } from './results/results.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     {path: 'share', component: ShareComponent}
   ]},
   {path: 'visitor/:quizid', component: VisitorsComponent},
+  {path: 'result/:resultid', component: ResultsComponent}
 ];
 const providers = {
   'google': {
@@ -43,7 +45,8 @@ const providers = {
     QuizComponent,
     TesttypeComponent,
     ShareComponent,
-    VisitorsComponent
+    VisitorsComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ const providers = {
     Angular2SocialLoginModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RoundProgressModule
   ],
   providers: [AuthService, DataService],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Route, Router} from "@angular/router";
-import {DataService} from "../data.service";
-import {FormControl, FormGroup} from "@angular/forms";
-import {AuthService} from "angular2-social-login";
+import {ActivatedRoute, Route, Router} from '@angular/router';
+import {DataService} from '../data.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import {AuthService} from 'angular2-social-login';
 
 @Component({
   selector: 'app-visitors',
