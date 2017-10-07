@@ -5,8 +5,34 @@
 }
 .user-thumb img {
   width: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
 }
 .user-name {
   text-align: center;
-  color: #383838;
+  color: #ffffff;
+}
+.user-detail {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  padding: 50px;
+}
+.responder-thumb {
+  /*width: 75px;*/
+}
+.responder-thumb img {
+  width: 100%;
+  border-radius: 100%;
+}
+.responder-div {
+  border: 1px solid #efefef;
+  padding: 15px;
+}
+.responder-detail button {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  border: 5px solid #fff;
+  width: 49%;
 }

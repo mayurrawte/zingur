@@ -33,3 +33,11 @@
   color: #ffffff;
   margin: 20px 0px;
 }
+.btn {
+  width: 100%;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #fff;
+}
+.clipdiv {
+  margin: 10px 0;
+}

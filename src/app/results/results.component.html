@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="loaded">
+<div class="container" style="padding: 0" *ngIf="loaded">
   <div class="user-detail">
     <div class="user-thumb">
       <img [src]="userData.thumb === 'default' ? '../assets/images/user.png' : userData.thumb">
@@ -7,8 +7,18 @@
       <h3>{{userData.name}}</h3>
     </div>
   </div>
-  <hr />
   <div class="result-containers">
-
-  </div>
+      <div class="col-md-12 col-xs-12 col-sm-12 responder-div" *ngFor="let response of responses">
+        <div class="responder-thumb col-md-2 col-xs-4 col-sm-2">
+          <img [src]="response.thumb === 'default' ? '../assets/images/user.png' : response.thumb">
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-8">
+          <h4>{{response.name}} <br /> {{response.detail.score*100 / 15 | round}} %</h4>
+        </div>
+        <div class="responder-detail col-md-12 col-sm-12 col-xs-12">
+          <button>I knows</button>
+          <button>I don't</button>
+        </div>
+      </div>
+    </div>
 </div>

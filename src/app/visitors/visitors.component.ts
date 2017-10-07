@@ -61,6 +61,7 @@ export class VisitorsComponent implements OnInit {
       this.id = this.id + 1;
       this.updateTempQuizAnswers();
     } else {
+      this.updateTempQuizAnswers();
       alert('result');
       this.quizCompleted = true;
       setTimeout(() => {
@@ -88,8 +89,8 @@ export class VisitorsComponent implements OnInit {
         wrongAnswer.innerHTML = wrongAnswer.innerHTML + '<li class="list-group-item">' + this.Questions[i].question + '</p> Ans:' + this.Questions[i].option[this.Questions[i].answer] + '</li>';
       }
     }
-    this.QuizAnswers['score'] = this.score;
-    this.dataService.setRespondersResult(this.QuizAnswers, this.quizId);
+    const data = {'answers': this.QuizAnswers, 'score': this.score};
+    this.dataService.setRespondersResult(data, this.quizId);
   }
 
   onSignIn(provider: string) {

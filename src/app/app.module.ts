@@ -16,6 +16,7 @@ import { ShareComponent } from './newtest/share/share.component';
 import {HttpModule} from '@angular/http';
 import { VisitorsComponent } from './visitors/visitors.component';
 import { ResultsComponent } from './results/results.component';
+import { RoundPipe } from './round.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -46,7 +47,8 @@ const providers = {
     TesttypeComponent,
     ShareComponent,
     VisitorsComponent,
-    ResultsComponent
+    ResultsComponent,
+    RoundPipe
   ],
   imports: [
     BrowserModule,

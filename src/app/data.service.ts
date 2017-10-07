@@ -30,8 +30,6 @@ export class DataService {
   getQuestions() {
     return this.defaultQuestions;
   }
-  setQuestions(id: number) {
-  }
   setUserDetail(userDetail: {'name': any, 'email': any, 'verified': boolean, 'thumb': string}) {
     this.actualUserData['name'] = userDetail.name;
     this.actualUserData['email'] = userDetail.email;
@@ -45,7 +43,8 @@ export class DataService {
     this.tempResponder['thumb'] = data.thumb;
   }
   setRespondersResult(data, id) {
-    this.tempResponder['answers'] = data;
+    this.tempResponder['detail'] = data;
+    console.log(this.tempResponder);
     this.http.post(this.databaseurl + 'data/' + id + '/responses.json', this.tempResponder)
       .subscribe((resData: Response) => {
       console.log(resData);
