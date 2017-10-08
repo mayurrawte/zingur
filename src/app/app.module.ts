@@ -17,6 +17,7 @@ import {HttpModule} from '@angular/http';
 import { VisitorsComponent } from './visitors/visitors.component';
 import { ResultsComponent } from './results/results.component';
 import { RoundPipe } from './round.pipe';
+import { ReplaceWithUserPipe } from './replace-with-user.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -48,7 +49,8 @@ const providers = {
     ShareComponent,
     VisitorsComponent,
     ResultsComponent,
-    RoundPipe
+    RoundPipe,
+    ReplaceWithUserPipe
   ],
   imports: [
     BrowserModule,

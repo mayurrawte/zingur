@@ -1,11 +1,12 @@
-<h1 class="prepare-test" *ngIf="loaded">{{challengingUser['name']}} 's <br /> Friendship Challenge</h1>
+<div class="container-fluid">
+  <h1 class="prepare-test" *ngIf="loaded">{{challengingUser['name']}} 's <br /> Friendship Challenge</h1>
+</div>
 <hr>
-<div *ngIf="initial && loaded; else startQuiz">
+<div *ngIf="initial && loaded; else startQuiz" style="padding: 20px;text-align: center;color: #5a5a5a;">
   <div *ngIf="challengingUser['verified']; else anyOneReply">
     <p>{{challengingUser['name']}} requested for genuine responses</p>
-    <p>so please verfify your identity</p>
+    <p>So please verify using</p>
     <div class="form-group social-buttons">
-      <p>Verify using</p>
       <button class="google" (click)="onSignIn('google')">Google</button>
       <button class="facebook" (click)="onSignIn('facebook')">Facebook</button>
     </div>
@@ -27,7 +28,7 @@
     <div *ngIf="loaded">
       <div class="question-container">
         <p>
-          {{Questions[id].question}}
+          {{Questions[id].question | replaceWithUser: challengingUser['name'].split(' ')[0]}}
         </p>
       </div>
       <hr />

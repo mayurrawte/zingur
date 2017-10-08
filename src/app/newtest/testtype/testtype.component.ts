@@ -14,8 +14,8 @@ export class TesttypeComponent implements OnInit {
   testType: string = null;
   enteredInitDetail = false;
   userName = null;
-  @ViewChild('username') name: ElementRef;
-  @ViewChild('email') email: ElementRef;
+  @ViewChild('username') NameRef: ElementRef;
+  @ViewChild('email') EmailRef: ElementRef;
   constructor(private authService: AuthService, private router: Router, private dataService: DataService) { }
   ngOnInit() {
   }
@@ -39,15 +39,19 @@ export class TesttypeComponent implements OnInit {
     });
   }
   onSubmitName() {
-    this.userName = this.name.nativeElement.value;
-    console.log(this.userName);
-    const data = {
-      'name' : this.userName,
-      'email': this.email.nativeElement.value,
-      'verified': false,
-      'thumb' : 'default'
-    };
-    this.dataService.setUserDetail(data);
-    this.router.navigate(['new-test', 'quiz', 0]);
+    if (this.NameRef.nativeElement.valid && this.EmailRef.nativeElement.valid) {
+      this.userName = this.NameRef.nativeElement.value;
+      console.log(this.userName);
+      const data = {
+        'name' : this.userName,
+        'email': this.EmailRef.nativeElement.value,
+        'verified': false,
+        'thumb' : 'default'
+      };
+      this.dataService.setUserDetail(data);
+      this.router.navigate(['new-test', 'quiz', 0]);
+    } else {
+      alert('Invalid Details');
   }
+}
 }

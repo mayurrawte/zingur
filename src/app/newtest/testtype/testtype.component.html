@@ -1,19 +1,19 @@
 <h1 class="prepare-test">Prepare Quiz</h1>
 <hr>
 <div>
-  <p class="desc">Select type of test to generate </p>
-  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('regular')">Regular</div>
-  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('verified')">Only Verified reply</div>
+  <p class="desc">Select response type </p>
+  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('regular')">Everyone</div>
+  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('verified')">Verified</div>
 </div>
 <div *ngIf="testType === 'regular'" class="select-type">
   <hr />
   <p>This quiz allows any user to reply </p>
   <p>We will mail you when someone responds to your quiz</p>
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Enter Your Name" #username>
+    <input class="form-control" type="text" placeholder="Enter Your Name" #username required>
   </div>
   <div class="form-group">
-    <input class="form-control" type="email" placeholder="Enter Your Email" #email>
+    <input class="form-control" type="email" placeholder="Enter Your Email" #email email required>
   </div>
   <div class="form-group">
     <input type="submit" value="START" class="form-control name-input" (click)="onSubmitName()">

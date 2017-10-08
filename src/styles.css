@@ -124,9 +124,9 @@
 }
 
 .quizCounter {
-  text-align: right;
+  text-align: center;
   background: linear-gradient(170deg, #48c6ef, #6f86d6);
-  width: 50px;
+  width: 70px;
   float: right;
   border-radius: 5px;
   padding: 2px 5px;
