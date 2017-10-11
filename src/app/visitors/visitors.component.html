@@ -65,8 +65,8 @@
 </ng-template>
 
 <div class="container-fluid" *ngIf="quizCompleted">
-  <h3>Score {{ score }} / 15</h3>
-  <p>{{score*100/15}}</p>
+  <h3 style="text-align: center;">Score {{ score }} / 15</h3>
+  <p style="text-align: center">{{score*100/15}} %</p>
   <round-progress [current]="score"
                   [max]="15"
                   [semicircle]="true"

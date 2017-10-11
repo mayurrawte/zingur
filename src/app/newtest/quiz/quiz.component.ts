@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {DataService} from '../../data.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -11,19 +11,22 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class QuizComponent implements OnInit {
   Questions = null;
   maxtest = 15;
-  id = null;
+  id = 0;
   editMode = false;
   loaded = false;
   tempquiz = [];
   tempForm: FormGroup;
   answerForm: FormGroup;
-  constructor(private dataService: DataService, private router: Router, private CRoute: ActivatedRoute) { }
+  finished = false;
+  constructor(private dataService: DataService, private router: Router) { }
   ngOnInit() {
+    console.log('Inquiz');
     this.Questions = this.dataService.getQuestions();
-    this.id = this.CRoute.snapshot.params['id'];
+    console.log(this.Questions);
     this.loaded = true;
     this.updateFormGroup();
-    console.log(this.answerForm);
+    console.log(this.id);
+    // console.log(this.answerForm);
   }
   updateFormGroup() {
     this.tempForm = new FormGroup({
@@ -38,10 +41,11 @@ export class QuizComponent implements OnInit {
   }
   goToNextQuestion(id: number) {
     this.updateTempQuiz();
-    const nextId = +this.id + 1;
+    const nextId = this.id + 1;
     if (this.maxtest > nextId) {
       this.id = nextId;
     } else {
+      this.finished = true;
       this.finishedCreatingTest();
     }
     this.updateFormGroup();
@@ -68,10 +72,14 @@ export class QuizComponent implements OnInit {
     this.Questions[this.id].options[3] = this.tempForm.value['option4'];
   }
   finishedCreatingTest() {
+    this.dataService.loading = true;
     this.dataService.setQuiz(this.tempquiz)
       .then((data) => {
       console.log(data);
-      this.router.navigate(['new-test', 'share'], {queryParams: {id: data}});
+      this.router.navigate(['new-test', 'share'], {queryParams: {id: data}})
+        .then(() => {
+        this.dataService.loading = false;
+        });
 });
 }
 }

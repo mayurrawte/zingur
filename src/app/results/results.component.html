@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="result-containers">
-      <div class="col-md-12 col-xs-12 col-sm-12 responder-div" *ngFor="let response of responses">
+      <div class="col-md-12 col-xs-12 col-sm-12 responder-div" *ngFor="let response of responses; let i= index">
         <div class="responder-thumb col-md-2 col-xs-4 col-sm-2">
           <img [src]="response.thumb === 'default' ? '../assets/images/user.png' : response.thumb">
         </div>
@@ -16,8 +16,16 @@
           <h4>{{response.name}} <br /> {{response.detail.score*100 / 15 | round}} %</h4>
         </div>
         <div class="responder-detail col-md-12 col-sm-12 col-xs-12">
-          <button>I knows</button>
-          <button>I don't</button>
+          <button data-toggle="collapse" [attr.data-target]="'#' + i">Answers</button>
+          <div [id]="i" class="collapse">
+            <ul class="list-group">
+              <li *ngFor="let answer of response.detail.answers;let j = index" class="list-group-item list-group-item-success"
+              [ngClass]="{'list-group-item-danger': userData.quiz[j].answer !== answer}">
+                <p>{{userData.quiz[j].question}}</p>
+                <p>{{userData.quiz[j].option[answer]}}</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

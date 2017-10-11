@@ -1,4 +1,9 @@
+<div class="loader" *ngIf="dataService.loading">
+  <app-loader></app-loader>
+</div>
+
 <app-header></app-header>
-<div style="margin-top: 50px">
+<div style="margin-top: 50px;min-height: 600px">
   <router-outlet></router-outlet>
 </div>
+<app-footer></app-footer>

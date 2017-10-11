@@ -1,9 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../data.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {AuthService} from 'angular2-social-login';
-
 @Component({
   selector: 'app-visitors',
   templateUrl: './visitors.component.html',
@@ -20,11 +18,10 @@ export class VisitorsComponent implements OnInit {
   answerForm: FormGroup;
   QuizAnswers = [];
   challengingUser = null;
-  visitingUser = {};
   quizCompleted = false;
   score = 0;
   @ViewChild('responderName') RName: ElementRef;
-  constructor(private CRoute: ActivatedRoute, private dataService: DataService, private authService: AuthService) {
+  constructor(private CRoute: ActivatedRoute, private dataService: DataService) {
   }
 
   ngOnInit() {
@@ -84,39 +81,31 @@ export class VisitorsComponent implements OnInit {
     for (let i = 0; i < 15; i++) {
       if (this.Questions[i].answer === this.QuizAnswers[i]) {
         this.score = this.score + 1;
-        correctAnswer.innerHTML = correctAnswer.innerHTML + '<li class="list-group-item">' + this.Questions[i].question + '</p> Ans:' + this.Questions[i].option[this.Questions[i].answer] + '</li>';
+        correctAnswer.innerHTML = correctAnswer.innerHTML +
+          '<li class="list-group-item">' +
+          this.Questions[i].question +
+          '</p> Ans:' + this.Questions[i].option[this.Questions[i].answer] +
+          '</li>';
       } else {
-        wrongAnswer.innerHTML = wrongAnswer.innerHTML + '<li class="list-group-item">' + this.Questions[i].question + '</p> Ans:' + this.Questions[i].option[this.Questions[i].answer] + '</li>';
+        wrongAnswer.innerHTML = wrongAnswer.innerHTML +
+          '<li class="list-group-item">' +
+          this.Questions[i].question +
+          '</p> Ans:' + this.Questions[i].option[this.Questions[i].answer] +
+          '</li>';
       }
     }
     const data = {'answers': this.QuizAnswers, 'score': this.score};
     this.dataService.setRespondersResult(data, this.quizId);
   }
-
   onSignIn(provider: string) {
-    this.authService.login(provider).subscribe((resData) => {
-      this.visitingUser = resData;
-      console.log(resData);
-      const data = {
-        'name': this.visitingUser['name'],
-        'email': resData['email'],
-        'verified': true,
-        'thumb': resData['image']
-      };
-      this.dataService.setResponderDetail(data);
+    this.dataService.socialLogin(provider, 'responder')
+      .then(() => {
       this.initial = false;
-    }, (error: Response) => {
-      console.log(error);
-    });
+      });
   }
   onSubmitName() {
-    const data = {
-      'name' : this.RName.nativeElement.value,
-      'email': null,
-      'verified': false,
-      'thumb' : 'default'
-    };
-    this.dataService.setResponderDetail(data);
+    const data = {'name' : this.RName.nativeElement.value, 'email': null};
+    this.dataService.localLogin(data, 'responder');
     this.initial = false;
   }
 }

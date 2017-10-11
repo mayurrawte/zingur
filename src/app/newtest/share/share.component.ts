@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../../data.service";
-import {ActivatedRoute} from "@angular/router";
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-share',
@@ -15,8 +14,7 @@ export class ShareComponent implements OnInit {
   constructor(private dataService: DataService) { }
   ngOnInit() {
     this.shareurl = this.dataService.shareUrl;
-    this.name = this.dataService.actualUserData['name'];
+    this.name = this.dataService.requestUser['name'];
     this.resulturl = this.dataService.resultUrl;
   }
-
 }

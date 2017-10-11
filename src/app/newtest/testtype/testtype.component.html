@@ -2,8 +2,8 @@
 <hr>
 <div>
   <p class="desc">Select response type </p>
-  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('regular')">Everyone</div>
-  <div class="button-test-type col-md-6 col-xs-6 col-sm-6" (click)="selectTestType('verified')">Verified</div>
+  <div class="button-test-type col-md-6 col-xs-12 col-sm-12" (click)="selectTestType('regular')">Everyone</div>
+  <div class="button-test-type col-md-6 col-xs-12 col-sm-12" (click)="selectTestType('verified')">Verified</div>
 </div>
 <div *ngIf="testType === 'regular'" class="select-type">
   <hr />

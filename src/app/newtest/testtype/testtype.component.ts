@@ -1,8 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from 'angular2-social-login';
-import {Response} from '@angular/http';
 import {Router} from '@angular/router';
-import {DataService} from "../../data.service";
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-testtype',
@@ -12,44 +10,33 @@ import {DataService} from "../../data.service";
 export class TesttypeComponent implements OnInit {
 
   testType: string = null;
-  enteredInitDetail = false;
   userName = null;
   @ViewChild('username') NameRef: ElementRef;
   @ViewChild('email') EmailRef: ElementRef;
-  constructor(private authService: AuthService, private router: Router, private dataService: DataService) { }
+  constructor(private router: Router, private dataService: DataService) { }
   ngOnInit() {
   }
   selectTestType(testType: string) {
     this.testType = testType;
   }
   onSignIn(provider: string) {
-    this.authService.login(provider).subscribe((resData) => {
-      this.userName = resData['name'];
-      console.log(resData);
-      const data = {
-        'name' : this.userName,
-        'email': resData['email'],
-        'verified': true,
-        'thumb' : resData['image']
-      };
-      this.dataService.setUserDetail(data);
-      this.router.navigate(['new-test', 'quiz', 0]);
-    }, (error: Response) => {
-      console.log(error);
-    });
+    this.dataService.loading = true;
+    this.dataService.socialLogin(provider, 'requester')
+      .then(() => {
+      console.log('loggedin');
+      this.dataService.loading = false;
+      this.router.navigate(['new-test', 'quiz']);
+      });
   }
   onSubmitName() {
-    if (this.NameRef.nativeElement.valid && this.EmailRef.nativeElement.valid) {
-      this.userName = this.NameRef.nativeElement.value;
-      console.log(this.userName);
-      const data = {
-        'name' : this.userName,
-        'email': this.EmailRef.nativeElement.value,
-        'verified': false,
-        'thumb' : 'default'
-      };
-      this.dataService.setUserDetail(data);
-      this.router.navigate(['new-test', 'quiz', 0]);
+    if (this.NameRef.nativeElement.validity.valid && this.EmailRef.nativeElement.validity.valid) {
+      this.dataService.loading = true;
+      const localData = {'name' : this.NameRef.nativeElement.value, 'email': this.EmailRef.nativeElement.value};
+      this.dataService.localLogin(localData, 'requester');
+      this.router.navigate(['new-test', 'quiz'])
+        .then(() => {
+        this.dataService.loading = false;
+        });
     } else {
       alert('Invalid Details');
   }

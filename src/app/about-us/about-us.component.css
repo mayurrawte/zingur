@@ -1,0 +1,20 @@
+.about-us {
+  min-height: 600px;
+  padding: 45px;
+  text-align: center;
+}
+.facebook-btn {
+  width: 200px;
+  background: #2b70b3;
+  margin: 0px auto;
+  padding: 10px;
+}
+.facebook-btn a {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.facebook-btn a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}

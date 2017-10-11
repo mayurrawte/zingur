@@ -6,8 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import {RouterModule, Routes} from '@angular/router';
 import { NewtestComponent } from './newtest/newtest.component';
-import {Angular2SocialLoginModule} from 'angular2-social-login';
-import {AuthService} from 'angular2-social-login';
 import { QuizComponent } from './newtest/quiz/quiz.component';
 import { TesttypeComponent } from './newtest/testtype/testtype.component';
 import {DataService} from './data.service';
@@ -18,16 +16,29 @@ import { VisitorsComponent } from './visitors/visitors.component';
 import { ResultsComponent } from './results/results.component';
 import { RoundPipe } from './round.pipe';
 import { ReplaceWithUserPipe } from './replace-with-user.pipe';
+import { Page404Component } from './page404/page404.component';
+import {IsAllowedGuard} from './is-allowed.guard';
+import {Angular2SocialLoginModule, AuthService} from 'angular2-social-login';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { LoaderComponent } from './loader/loader.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'new-test', component: NewtestComponent, children: [
     {path: '', component: TesttypeComponent},
-    {path: 'quiz/:id', component: QuizComponent},
-    {path: 'share', component: ShareComponent}
+    {path: 'quiz', component: QuizComponent, canActivate: [IsAllowedGuard]},
+    {path: 'share', component: ShareComponent},
+    {path: '**', component: Page404Component}
   ]},
   {path: 'visitor/:quizid', component: VisitorsComponent},
-  {path: 'result/:resultid', component: ResultsComponent}
+  {path: 'result/:resultid', component: ResultsComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'contact-us', component: ContactUsComponent}
 ];
 const providers = {
   'google': {
@@ -38,6 +49,7 @@ const providers = {
     'apiVersion': 'v2.10'
   }
 };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +62,13 @@ const providers = {
     VisitorsComponent,
     ResultsComponent,
     RoundPipe,
-    ReplaceWithUserPipe
+    ReplaceWithUserPipe,
+    Page404Component,
+    PrivacyPolicyComponent,
+    AboutUsComponent,
+    FooterComponent,
+    ContactUsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +79,7 @@ const providers = {
     HttpModule,
     RoundProgressModule
   ],
-  providers: [AuthService, DataService],
+  providers: [DataService, IsAllowedGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@
 .share-btn {
   border: 0px;
   border-radius: 5px;
-  width: 49%;
+  width: 100%;
   color: #ffffff;
 }
 .share-btn div {
@@ -18,7 +18,7 @@
   color: #ffffff;
 }
 .share-btn div img {
-  width: 20%;
+  width: 45px;
   margin: 0 15px;
 }
 #share-whatsapp {
@@ -40,4 +40,14 @@
 }
 .clipdiv {
   margin: 10px 0;
+}
+#resulturl {
+  padding: 10px;
+  background: #e2e2e2;
+  color: #1b1b1b;
+}
+
+.share-div {
+  padding: 45px;
+  text-align: center;
 }

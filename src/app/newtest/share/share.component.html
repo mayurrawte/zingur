@@ -1,19 +1,19 @@
+<div class="share-div">
+
+
 <h1 class="prepare-test">Share</h1>
 <hr>
 <h2>Congratulations {{ name }} ! </h2>
 <br />
 <h3>Your quiz created successfully.</h3>
-<button id="share-whatsapp" class="share-btn"><a [href]="'https://api.whatsapp.com/send?text=Hey%20Pals!%20I%20would%20love%20to%20challange%20you%20to%20#zingurchallenge%20' + shareurl"><div><img src="../../../assets/images/facebook.png">Whatsapp</div></a></button>
-<button id="share-facebook" class="share-btn"><div><img src="../../../assets/images/facebook.png">Facebook</div></button>
+<button id="share-whatsapp" class="share-btn"><a [href]="'https://api.whatsapp.com/send?text=Hey%20Pal!%20I%20would%20love%20to%20challange%20you%20to%20zingurchallenge%20' + shareurl"><div><img src="../../../assets/images/whatsapp.png">Share Via Whatsapp</div></a></button>
+  <hr />
+  <div>
+    <a [routerLink]="resulturl">
+      Click Here to visit the result page of this quiz
+    </a>
+    <hr />
+    <p><small>Result link also has been mailed to you !</small></p>
+  </div>
 
-<div class="clipdiv">
-  <input id="foo" [value]="shareurl" class="form-control">
-  <button class="btn" data-clipboard-target="#foo">Copy Share Link</button>
 </div>
-
-<div class="clipdiv">
-  <input id="resulturl" [value]="resulturl" class="form-control">
-  <button class="btn" data-clipboard-target="#resulturl">Copy Result Link</button>
-</div>
-
-

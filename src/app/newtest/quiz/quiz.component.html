@@ -1,6 +1,6 @@
 <h1 class="prepare-test">Prepare Test</h1>
 <hr>
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!finished">
     <div>{{id+1}} / {{maxtest}}</div>
     <div *ngIf="loaded">
       <div class="question-container">
@@ -62,4 +62,6 @@
       </div>
     </div>
   </div>
-
+<div class="loading" *ngIf="finished">
+  <p style="text-align: center">Loading Links</p>
+</div>
