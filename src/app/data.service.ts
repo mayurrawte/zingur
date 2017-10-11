@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import {AuthService} from 'angular2-social-login';
 @Injectable()
@@ -14,9 +14,11 @@ export class DataService {
   sgheader = new Headers({'Authorization': 'Bearer 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', 'Content-Type' : 'application/json'});
   defaultQuestions = [{'id': 1, 'question': 'Who is your favorite actor ?', 'options': ['Akshay Kumar', 'Salmam Khan', 'Shakti Kapoor', 'Raakpal Yadav'] }, {'id': 2, 'question': 'Which superhero do you like the most ?', 'options': ['Superman', 'Shaktimaan', 'IronMan', 'Deadpool'] }, {'id': 3, 'question': 'Chocolate that melts your heart !', 'options': ['Parle Kisme', 'PERK', 'Cadbury', 'Bournville'] }, {'id': 4, 'question': 'Your preferred movie genre', 'options': ['Comedy', 'Sci-Fi', 'Action', 'Adventure'] }, {'id': 5, 'question': 'What would you like to do in spare time ?', 'options': ['Sleep', 'Music', 'Dream', 'Cook'] }, {'id': 6, 'question': 'Which super power would you like to have ?', 'options': ['Fly', 'Super beam', 'Destroy Everything', 'Go to future'] }, {'id': 7, 'question': 'Your favorite food is ?', 'options': ['Dosa', 'Paav Bhaji', 'Noodles', 'Pizza'] }, {'id': 8, 'question': 'A perfect date for you ?', 'options': ['Someone Alike', 'Smart', 'Beautiful', 'Cute'] }, {'id': 9, 'question': 'Place you would like to visit ?', 'options': ['Estonia', 'Silicon Valley', 'Himalaya', 'Jammu'] }, {'id': 10, 'question': 'What do you do on a weekends ?', 'options': ['Movie', 'Stay at home and Chill', 'Hangout with Friends', 'Nothing'] }, {'id': 11, 'question': 'Which pet do you like to owe ?', 'options': ['Rattle snake', 'Cat', 'Rabbit', 'None'] }, {'id': 12, 'question': 'Favorite TV series ?', 'options': ['Friends', 'I don\'t watch', 'Scorpians', 'Two and a Half Man'] }, {'id': 13, 'question': 'Your dream is to ?', 'options': ['Own a big car', 'Have a villa', 'Go to himalayan', 'World tour'] }, {'id': 14, 'question': 'Who is your biggest crush?', 'options': ['Katrina Kaif', 'Deepika Padukon', 'Shirley Setia', 'Sunidhi Chouhan'] }, {'id': 15, 'question': 'Whom do you like to meet ?', 'options': ['Larry Page', 'Narendra Modi', 'Elon Musk', 'Mark Zuckerberg'] } ];
   constructor(private http: Http, private authService: AuthService) {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
+    document.onreadystatechange = ( () => {
+      if (document.readyState === 'complete') {
+        this.loading = false;
+      }
+    });
     if (localStorage.getItem('kindaData')) {
       const kindaData = JSON.parse(localStorage.getItem('kindaData'));
       this.shareUrl = kindaData.shareurl;
@@ -124,6 +126,8 @@ export class DataService {
       .subscribe((emailResData: Response) => {
         console.log(emailResData.json());
         alert('We are glad to receive your message. We will be connecting to you shortly');
+      }, (error: Response) => {
+      console.log(error);
       });
   }
 }
