@@ -50,3 +50,40 @@
   background: linear-gradient(170deg, #48c6ef, #6f86d6);
   color: #ffffff;
 }
+.your-turn {
+  text-align: center;
+  z-index: 99999;
+  background: #2d2d2d;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.your-turn .txt {
+  top: 50%;
+  left: 50%;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+.your-turn .cancel {
+  position: fixed;
+  right: 10px;
+  width: 50px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
+.show-some-message-box {
+  padding: 30px;
+}
+.fewtextarea {
+  height: 110px;
+}
+.ready-btn {
+  width: 100%;
+}

@@ -7,13 +7,19 @@
       <h3>{{userData.name}}</h3>
     </div>
   </div>
-  <div class="result-containers">
+  <div *ngIf="!responses.length" class="empty">
+    <p>It is empty right here</p>
+    <p><small>Tell your Zingur friends to take quiz !</small></p>
+  </div>
+  <div class="result-containers" *ngIf="responses.length">
       <div class="col-md-12 col-xs-12 col-sm-12 responder-div" *ngFor="let response of responses; let i= index">
         <div class="responder-thumb col-md-2 col-xs-4 col-sm-2">
           <img [src]="response.thumb === 'default' ? '../assets/images/user.png' : response.thumb">
         </div>
         <div class="col-md-10 col-sm-10 col-xs-8">
-          <h4>{{response.name}} <br /> {{response.detail.score*100 / 15 | round}} %</h4>
+          <h4>{{response.name}} know  <br /> {{response.detail.score*100 / 15 | round}} % about your !</h4>
+          <hr />
+          <p>Few Words from {{response.name}} : <br /> " {{response.detail.fewWords}} "</p>
         </div>
         <div class="responder-detail col-md-12 col-sm-12 col-xs-12">
           <button data-toggle="collapse" [attr.data-target]="'#' + i">Answers</button>

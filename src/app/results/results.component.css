@@ -36,3 +36,7 @@
   border: 5px solid #fff;
   width: 100%;
 }
+.empty {
+  text-align: center;
+  padding: 45px;
+}

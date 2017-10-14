@@ -1,18 +1,12 @@
 <h1 class="prepare-test">Prepare Test</h1>
 <hr>
 <div class="container-fluid" *ngIf="!finished">
-    <div>{{id+1}} / {{maxtest}}</div>
+    <div class="quizCounter">{{id+1}} / {{maxtest}}</div>
     <div *ngIf="loaded">
       <div class="question-container">
-        <!--<p *ngIf="!editMode; else editQuestion;">-->
         <p>
           {{Questions[id].question}}
         </p>
-        <!--<ng-template #editQuestion>-->
-          <!--<div class="form-group">-->
-            <!--<input class="form-control" [(ngModel)]="Questions[id].question">-->
-          <!--</div>-->
-        <!--</ng-template>-->
       </div>
       <hr />
       <div class="answers-container">
@@ -57,11 +51,10 @@
       </div>
       <hr />
       <div class="">
-        <button (click)="onToggleMode()" class="next-btn" [innerHTML]="editMode === false ? 'Edit' : 'Update'"></button>
+        <button (click)="onToggleMode()" class="next-btn" [innerHTML]="editMode === false ? 'Edit Options' : 'Update'"></button>
         <button (click)="goToNextQuestion(Questions[id].id)" [ngClass]="{'next-btn': answerForm.dirty, 'next-btn-dis': !answerForm.dirty}" [disabled]="!answerForm.dirty" >Next</button>
       </div>
     </div>
   </div>
 <div class="loading" *ngIf="finished">
-  <p style="text-align: center">Loading Links</p>
 </div>

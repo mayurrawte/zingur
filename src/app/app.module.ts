@@ -1,54 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NewtestComponent } from './newtest/newtest.component';
 import { QuizComponent } from './newtest/quiz/quiz.component';
 import { TesttypeComponent } from './newtest/testtype/testtype.component';
-import {DataService} from './data.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DataService } from './data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareComponent } from './newtest/share/share.component';
-import {HttpModule} from '@angular/http';
-import { VisitorsComponent } from './visitors/visitors.component';
-import { ResultsComponent } from './results/results.component';
-import { RoundPipe } from './round.pipe';
-import { ReplaceWithUserPipe } from './replace-with-user.pipe';
+import { HttpModule} from '@angular/http';
 import { Page404Component } from './page404/page404.component';
-import {IsAllowedGuard} from './is-allowed.guard';
-import {Angular2SocialLoginModule, AuthService} from 'angular2-social-login';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+import { IsAllowedGuard } from './is-allowed.guard';
 import { FooterComponent } from './footer/footer.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LoaderComponent } from './loader/loader.component';
-
-
+import { LocaluserComponent } from './newtest/testtype/localuser/localuser.component';
+import { AuthService } from 'angular2-social-login';
+import {SharedModule} from './shared/shared.module';
+import {VisitorsService} from "./visitors.service";
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'new-test', component: NewtestComponent, children: [
-    {path: '', component: TesttypeComponent},
+    {path: '', component: TesttypeComponent, children: [
+      {path: 'local', component: LocaluserComponent},
+      {path: 'social', loadChildren: './newtest/testtype/socialuser/social-user.module#SocialUserModule'}
+    ]},
     {path: 'quiz', component: QuizComponent, canActivate: [IsAllowedGuard]},
     {path: 'share', component: ShareComponent},
     {path: '**', component: Page404Component}
   ]},
-  {path: 'visitor/:quizid', component: VisitorsComponent},
-  {path: 'result/:resultid', component: ResultsComponent},
-  {path: 'privacy-policy', component: PrivacyPolicyComponent},
-  {path: 'about-us', component: AboutUsComponent},
-  {path: 'contact-us', component: ContactUsComponent}
+  {path: 'visitor/:quizid', loadChildren: './visitors/visitors.module#VisitorsModule'},
+  {path: 'result/:resultid', loadChildren: './results/result.module#ResultModule'},
+  {path: 'privacy-policy', loadChildren: './privacy-policy/privacy-policy.module#PrivacyPolicyModule'},
+  {path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsModule'},
+  {path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsModule'}
 ];
-const providers = {
-  'google': {
-    'clientId': '802102612483-g4s10i9ccsfqj9nsvf1ceqf2fsufven2.apps.googleusercontent.com'
-  },
-  'facebook': {
-    'clientId': '347398449039184',
-    'apiVersion': 'v2.10'
-  }
-};
+
 
 @NgModule({
   declarations: [
@@ -59,28 +47,20 @@ const providers = {
     QuizComponent,
     TesttypeComponent,
     ShareComponent,
-    VisitorsComponent,
-    ResultsComponent,
-    RoundPipe,
-    ReplaceWithUserPipe,
     Page404Component,
-    PrivacyPolicyComponent,
-    AboutUsComponent,
     FooterComponent,
-    ContactUsComponent,
-    LoaderComponent
+    LoaderComponent,
+    LocaluserComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    Angular2SocialLoginModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RoundProgressModule
+    SharedModule
   ],
-  providers: [DataService, IsAllowedGuard, AuthService],
+  providers: [DataService, IsAllowedGuard, AuthService, VisitorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-Angular2SocialLoginModule.loadProvidersScripts(providers);

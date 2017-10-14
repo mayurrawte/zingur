@@ -23,9 +23,8 @@
 .funkyradio input[type="radio"]:empty ~ label,
 .funkyradio input[type="checkbox"]:empty ~ label {
   position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 2em;
+  line-height: 3.5em;
+  text-indent: 4.25em;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -131,5 +130,155 @@
   border-radius: 5px;
   padding: 2px 5px;
   color: #fff;
+}
+.select-type {
+  margin: 85px 0px
+}
+.social-buttons button{
+  padding: 8px;
+  width: 49%;
+  border: 0px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.social-buttons button.facebook {
+  background: linear-gradient(-15deg, #3b5998,#ffffff )
+}
+.social-buttons button.google {
+  background: linear-gradient(-15deg, #d34836,#ffffff )
+}
+.button-test-type {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  border: 5px solid #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.name-input {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  height: auto;
+}
+
+.prepare-test {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.desc {
+  padding: 0px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.my-fancy-btn {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  height: auto;
+}
+
+.next-btn {
+  width: 100%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+}
+.next-btn-dis {
+  width: 100%;
+  padding: 8px;
+  border: 0px;
+  color: #fff;
+  background: linear-gradient(170deg, black, white);
+}
+.prepare-test {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.panel-title{
+  border-radius: 5px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+.wrong-panel-title {
+  background: tomato;
+}
+.correct-panel-title {
+  background: #19aea5;
+}
+.social-buttons button{
+  padding: 8px;
+  width: 49%;
+  border: 0px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.social-buttons button.facebook {
+  background: linear-gradient(-15deg, #3b5998,#ffffff )
+}
+.social-buttons button.google {
+  background: linear-gradient(-15deg, #d34836,#ffffff )
+}
+.start-btn {
+  background: linear-gradient(170deg, #48c6ef, #6f86d6);
+  color: #ffffff;
+}
+.your-turn {
+  text-align: center;
+  z-index: 99999;
+  background: #2d2d2d;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.your-turn .txt {
+  top: 50%;
+  left: 50%;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+.your-turn .cancel {
+  position: fixed;
+  right: 10px;
+  width: 50px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
+.show-some-message-box {
+  padding: 30px;
+}
+.fewtextarea {
+  height: 110px;
+}
+.ready-btn {
+  width: 100%;
 }
 
