@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RoundPipe} from '../round.pipe';
 import {CommonModule} from '@angular/common';
 import {ReplaceWithUserPipe} from '../replace-with-user.pipe';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
@@ -11,14 +10,13 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
   ],
   imports: [
     CommonModule,
-    RoundProgressModule
   ],
   exports: [
     RoundPipe,
-    ReplaceWithUserPipe,
-    RoundProgressModule
+    ReplaceWithUserPipe
   ]
 })
 
-export class SharedModule {}
+export class SharedModule {
+}
 

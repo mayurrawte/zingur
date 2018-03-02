@@ -50,14 +50,14 @@
   </form>
 </div>
 <div class="container-fluid" *ngIf="quizCompleted">
-  <round-progress [current]="score"
-                  [max]="15"
-                  [semicircle]="true"
-                  [color]="'#60a0e0'"
-                  [rounded]="true"
-                  [stroke]="20"
-                  [responsive]="true"
-  ></round-progress>
+  <!--<round-progress [current]="score"-->
+                  <!--[max]="15"-->
+                  <!--[semicircle]="true"-->
+                  <!--[color]="'#60a0e0'"-->
+                  <!--[rounded]="true"-->
+                  <!--[stroke]="20"-->
+                  <!--[responsive]="true"-->
+  <!--&gt;</round-progress>-->
   <h3 style="text-align: center;">Score {{ score }} / 15</h3>
   <p style="text-align: center">{{score*100/15 | round}} %</p>
   <div class="panel-group">
